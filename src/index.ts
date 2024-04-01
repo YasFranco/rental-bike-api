@@ -16,6 +16,10 @@ app.get("/api", (req, res) => {
 
 app.use("/api/users", userRouter)
 
+app.use("*", (req, res) => {
+    res.status(404).json({ error: "Resourse not found"})
+})
+
 app.listen(PORT, () => {
     console.log(`Server listening on PORT: http://localhost:${PORT}`)
 })

@@ -8,14 +8,14 @@
     },
     "users": [
       {
-        "name": "Usuario1",
+        "username": "Usuario1",
         "email": "usuario1@example.com",
         "password": "contraseña123",
         "phone": "987-654-321",
         "token": ""
       },
       {
-        "name": "Usuario2",
+        "username": "Usuario2",
         "email": "usuario2@example.com",
         "password": "contraseña456",
         "phone": "555-555-555",

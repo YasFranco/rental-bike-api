@@ -9,6 +9,10 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(express.json());
 
+app.get("/api", (req, res) => {
+    res.json(info)
+} )
+
 app.listen(PORT, () => {
     console.log(`Server listening on PORT: http://localhost:${PORT}`)
 })

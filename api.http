@@ -1,0 +1,2 @@
+### Obteniendo info
+GET http://localhost:5554/api

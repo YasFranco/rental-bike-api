@@ -78,6 +78,16 @@ abstract class UserModel {
 
         writeFileSync("./src/db/bikes.json", db);
     }
+
+    static logoutUser = (username:any) => {
+        const user = db.users.find((user) => user.username.toLowerCase() === username.toLowerCase());
+
+        if(!user) return 404
+
+        user.token = "";
+
+        writeFileSync("./src/db/bikes.json", db)
+    }
 }
 
 export default UserModel

@@ -17,6 +17,7 @@ userRouter.patch("/:username1", UserController.updateUser)
 
 // --------------- DELETE -----------------
 userRouter.delete("/:username", UserController.deleteUser)
+userRouter.delete("/logout", UserController.logoutUser)
 
 
 

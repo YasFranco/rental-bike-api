@@ -50,6 +50,26 @@ abstract class UserModel {
 
         writeFileSync("./src/db/bikes.json", db)
     }
+
+    static updateUser = (objData:any) => {
+        const { username, email, password, phone } = objData;
+
+        const user = db.users.find((user) => user.username === username);
+
+        if(!user) return 404
+         
+        if(username) user.username = username;
+        if(email) user.email = email;
+        if(password) user.password = password;
+        if(phone) user.phone = phone;
+
+        writeFileSync("./src/db/bikes.json", db)
+
+    }
+
+    static deleteUser = () => {
+        
+    }
 }
 
 export default UserModel

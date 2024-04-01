@@ -1,0 +1,49 @@
+{
+    "info": {
+      "name": "BiciRent",
+      "opening": 2018,
+      "admin": "Yasmin Franco",
+      "location": "Calle Reconquista 1923",
+      "phone": "1156483422"
+    },
+    "users": [
+      {
+        "name": "Usuario1",
+        "email": "usuario1@example.com",
+        "password": "contraseña123",
+        "phone": "987-654-321",
+        "token": ""
+      },
+      {
+        "name": "Usuario2",
+        "email": "usuario2@example.com",
+        "password": "contraseña456",
+        "phone": "555-555-555",
+        "token": ""
+      }
+    ],
+    "bikes": [
+      {
+        "type": "Montaña",
+        "model": "Trek X-Caliber 9",
+        "colour": ["rojo", "azul", "amarillo"], 
+        "price-hour": 545,
+        "quantity": 10
+      },
+      {
+        "type": "Ciudad",
+        "model": "Specialized Sirrus X 3.0",
+        "colour": ["rosa", "azul", "verde"], 
+        "price-hour": 485,
+        "quantity": 8
+      },
+      {
+        "type": "Plegable",
+        "model": "Brompton M6L",
+        "colour": ["rojo", "verde", "azul"], 
+        "price-hour": 637,
+        "quantity": 5
+      }
+    ]
+  }
+  

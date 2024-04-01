@@ -12,6 +12,17 @@ abstract class UserModel {
         })
         return mappedData
     }
+
+    static readUserById = (username: any) => {
+        const data = db.users.find((user) => user.username === username);
+
+        if(data) {
+            const { username, email} = data;
+            return { username, email}
+        }
+
+        return data
+    }
 }
 
 export default UserModel

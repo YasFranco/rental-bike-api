@@ -3,3 +3,6 @@ GET http://localhost:5554/api
 
 ### Obtener todos los usuarios
 GET http://localhost:5554/api/users
+
+### Obtener usuario por username
+GET http://localhost:5554/api/users/Usuario1

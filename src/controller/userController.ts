@@ -9,6 +9,15 @@ abstract class UserController {
 
         res.json(response)
     }
+
+    static readUserById = (req:Request, res:Response) => {
+        const { username } = req.params;
+
+        const response = UserModel.readUserById(username);
+        if(!response) return res.status(404).json({error: "USER_NOT_FOUND"});
+
+        res.json(response)
+    }
 }
 
 export default UserController

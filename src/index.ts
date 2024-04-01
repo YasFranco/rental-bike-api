@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import { info} from "./db/bikes.json";
 import userRouter from "./routes/userRouter";
+import bikeRouter from "./routes/bikeRouter";
 
 
 const app = express(); 
@@ -15,6 +16,7 @@ app.get("/api", (req, res) => {
 } )
 
 app.use("/api/users", userRouter)
+app.use("/api/bikes", bikeRouter)
 
 app.use("*", (req, res) => {
     res.status(404).json({ error: "Resourse not found"})

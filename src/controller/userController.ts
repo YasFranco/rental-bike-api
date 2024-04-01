@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import UserModel from "../model/userModel";
-import { validateUser } from "../middleware/auth";
+import { validateParcialUser, validateUser } from "../validation/auth";
 
 abstract class UserController {
     static readUsers = (req: Request, res:Response) => {
@@ -32,12 +32,27 @@ abstract class UserController {
         const newUser = { username, email, password, phone };
         const response = UserModel.createUser(newUser);
 
-        if(response === 409) {
-           return res.status(409).json("USER_ALREADY_EXISTS")
-        } 
+        if(response === 409) return res.status(409).json({error: "USER_ALREADY_EXISTS"})
 
-        res.status(201).json("USER_CREATED_SUCCESSFULLY")
+        res.status(201).json({error: "USER_CREATED_SUCCESSFULLY"})
 
+    }
+
+    static loginUser = (req: Request, res: Response) => {
+
+        const responseValidator = validateParcialUser(req.body);
+        if(!responseValidator.success){
+            return res.status(400).send(responseValidator.error);
+        }
+
+        const { username, password } = req.body;
+
+        const response = UserModel.loginUser({ username, password });
+
+        if(response === 404) return res.status(404).json({error: "USER_NOT_FOUND"})
+        if(response === 400) return res.status(400).json({error: "BAD_REQUEST"})
+
+        res.json({message: "LOGGED_IN_USER"})
     }
 }
 

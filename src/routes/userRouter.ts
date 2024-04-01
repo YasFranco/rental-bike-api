@@ -1,5 +1,6 @@
 import { Router } from "express";
 import UserController from "../controller/userController";
+import { validator } from "../middleware/userAuth";
 
 const userRouter = Router();
 
@@ -9,6 +10,7 @@ userRouter.get("/:username", UserController.readUserById)
 
 // ---------------- POST -----------------
 userRouter.post("/register", UserController.createUser)
+userRouter.post("/login", UserController.loginUser)
 
 
 

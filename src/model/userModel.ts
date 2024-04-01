@@ -1,5 +1,6 @@
 import db from "../db/bikes.json";
-import {writeFileSync} from "jsonfile"
+import { writeFileSync } from "jsonfile"
+import { randomUUID } from "node:crypto"
 
 abstract class UserModel {
     static readUsers = () => {
@@ -32,6 +33,21 @@ abstract class UserModel {
 
         if(user) return 409;
         db.users.push(newUser)
+        writeFileSync("./src/db/bikes.json", db)
+    }
+
+    static loginUser = (dataUser:any) => {
+        const { username, password } = dataUser;
+
+        const user = db.users.find((user) => user.username === username);
+
+        if(!user) return 404
+        if(!password) return 400
+        if(user.password !== password) return 400
+
+        const token = randomUUID()
+        user.token = token
+
         writeFileSync("./src/db/bikes.json", db)
     }
 }

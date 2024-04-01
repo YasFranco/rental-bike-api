@@ -1,1 +1,53 @@
-{"info":{"name":"BiciRent","opening":2018,"admin":"Yasmin Franco","location":"Calle Reconquista 1923","phone":"1156483422"},"users":[{"username":"Usuario1","email":"usuario1@example.com","password":"contraseña123","phone":"987-654-321","token":""},{"username":"Usuario2","email":"usuario2@example.com","password":"contraseña456","phone":"555-555-555","token":""},{"username":"Melina Arias","email":"melina.a@gmail.com","password":"Meli12","phone":14,"token":"7ffde31d-e13d-4b74-b266-522cbbbda77f"},{"username":"Eliana Mendoza","email":"mendoza.e@gmail.com","password":"Meneli","phone":1513423411,"token":"28b71255-d2c3-444b-8d84-904e425799c0"}],"bikes":[{"type":"Montaña","model":"Trek X-Caliber 9","colour":["rojo","azul","amarillo"],"price-hour":545,"quantity":10},{"type":"Ciudad","model":"Specialized Sirrus X 3.0","colour":["rosa","azul","verde"],"price-hour":485,"quantity":8},{"type":"Plegable","model":"Brompton M6L","colour":["rojo","verde","azul"],"price-hour":637,"quantity":5}]}
+{
+    "info": {
+        "name": "BiciRent",
+        "opening": 2018,
+        "admin": "Yasmin Franco",
+        "location": "Calle Reconquista 1923",
+        "phone": "1156483422"
+    },
+    "users": [
+        {
+            "username": "ElianaMendoza",
+            "email": "mendoza.e@gmail.com",
+            "password": "Meneli",
+            "phone": 1513423411,
+            "token": "28b71255-d2c3-444b-8d84-904e425799c0"
+        }
+    ],
+    "bikes": [
+        {
+            "type": "Montaña",
+            "model": "Trek X-Caliber 9",
+            "colour": [
+                "rojo",
+                "azul",
+                "amarillo"
+            ],
+            "price-hour": 545,
+            "quantity": 10
+        },
+        {
+            "type": "Ciudad",
+            "model": "Specialized Sirrus X 3.0",
+            "colour": [
+                "rosa",
+                "azul",
+                "verde"
+            ],
+            "price-hour": 485,
+            "quantity": 8
+        },
+        {
+            "type": "Plegable",
+            "model": "Brompton M6L",
+            "colour": [
+                "rojo",
+                "verde",
+                "azul"
+            ],
+            "price-hour": 637,
+            "quantity": 5
+        }
+    ]
+}

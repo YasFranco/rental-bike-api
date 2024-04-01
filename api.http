@@ -27,3 +27,6 @@ Content-Type: application/json
     "username": "Eliana Mendoza",
     "password": "Meneli"
 }
+
+### Borrar usuario
+DELETE http://localhost:5554/api/users/melinaarias

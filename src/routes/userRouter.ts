@@ -16,7 +16,7 @@ userRouter.post("/login", UserController.loginUser)
 userRouter.patch("/:username1", UserController.updateUser)
 
 // --------------- DELETE -----------------
-
+userRouter.delete("/:username", UserController.deleteUser)
 
 
 

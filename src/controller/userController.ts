@@ -72,7 +72,12 @@ abstract class UserController {
     }
 
     static deleteUser = (req: Request, res: Response) => {
-        
+        const { username } = req.params;
+
+        const response = UserModel.deleteUser(username);
+        if(response === 404) return res.status(404).json({error: "USER_NOT_FOUND"})
+
+        res.json({message: "USER_DELETED_SUCCESSFULLY"})
     }
 }
 

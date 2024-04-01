@@ -67,8 +67,16 @@ abstract class UserModel {
 
     }
 
-    static deleteUser = () => {
-        
+    static deleteUser = (username:any) => {
+        const user = db.users.find((user) => user.username.toLowerCase() === username.toLowerCase());
+
+        if(!user) return 404;
+
+        const deletedUser = db.users.filter((user) => user.username.toLowerCase() !== username.toLowerCase());
+
+        db.users = deletedUser;
+
+        writeFileSync("./src/db/bikes.json", db);
     }
 }
 

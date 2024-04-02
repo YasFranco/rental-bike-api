@@ -37,6 +37,22 @@ abstract class BikeModel {
 
         writeFileSync("./src/db/bikes.json", db)
     }
+
+    static updateBike = (objData: any) => {
+        const { id, type, model, colour, priceHour, quantity } = objData;
+
+        const bike = db.bikes.find((bike) => bike.id === id);
+
+        if(!bike) return 404
+
+        if(type) bike.type = type
+        if(model) bike.model = model
+        if(colour) bike.colour = colour
+        if(priceHour) bike.priceHour = priceHour
+        if(quantity) bike.quantity = quantity
+
+        writeFileSync("./src/db/bikes.json", db)
+    }
     
 }
 

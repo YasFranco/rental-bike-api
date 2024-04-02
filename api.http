@@ -60,3 +60,11 @@ Content-Type: application/json
 
 ### Borrar bicicleta
 DELETE http://localhost:5554/api/bikes/c65a68ff-f57a-443f-86c4-39d7f275af60
+
+### Actualizar datos
+PATCH http://localhost:5554/api/bikes/g90ea8c9-8833-4e6f-b6d2-7563fee32696
+Content-Type: application/json
+
+{
+    "priceHour": "700"
+}

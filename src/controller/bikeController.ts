@@ -36,6 +36,25 @@ abstract class BikeController {
 
         res.json({message: "BIKE_DELETED_SUCCESSFULLY"})
     }
+
+    static updateBike = (req: Request, res: Response) => {
+        
+        const responseValidator = validateParcialBike(req.body);
+        if(!responseValidator.success){
+            return res.status(400).send(responseValidator.error);
+        }
+        
+        const { id } = req.params;
+        const  { type, model, colour, priceHour, quantity } = req.body
+
+        const objData = { id, type, model, colour, priceHour, quantity };
+
+        const response = BikeModel.updateBike(objData)
+
+        if(response === 404) return res.status(404).json({error: "BIKE_NOT_FOUND"});
+
+        res.json({message: "SUCCESSFULLY_MODIFIED_BIKE"})
+    }
 }
 
 export default BikeController

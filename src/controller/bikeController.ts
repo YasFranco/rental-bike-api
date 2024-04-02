@@ -8,7 +8,8 @@ abstract class BikeController {
     static readAllBike = (req: Request, res: Response) => {
 
         const response = BikeModel.readAllBikes(req.query);
-        if(!response) return res.status(500).json({error: "SERVER_ERROR"})
+        res.json(response)
+        // if(!response) return res.status(500).json({error: "SERVER_ERROR"})
     }
 
     static readBikeById = (req:Request, res:Response) => {

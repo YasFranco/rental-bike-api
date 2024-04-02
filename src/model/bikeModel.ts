@@ -1,20 +1,22 @@
 import db from "../db/bikes.json"
-import { writeFileSync } from "jsonfile"
-import { readFileSync } from "fs";
+import { writeFileSync, readFileSync } from "jsonfile"
+// import { readFileSync } from "fs";
 
 abstract class BikeModel {
     static readAllBikes = (query:any) => {
 
+        
         const { type } = query;
-        const bikeData = readFileSync("./src/db/bikes.json", "utf-8");
+        const bikeData = readFileSync("./src/db/bikes.json");
+        const mappedData = bikeData.bikes
 
-        const parsedData = JSON.parse(bikeData)
+        
         if(type){
-            const bikeByType = parsedData.bikes.find((bike:any) => bike.type === type);
+            const bikeByType = mappedData.find((bike:any) => bike.type === type);
             return bikeByType
         }
 
-        return parsedData
+        return mappedData
     }
 
     static readBikeById = (id: string) => {

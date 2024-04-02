@@ -51,7 +51,7 @@ abstract class UserModel {
     }
 
     static updateUser = (objData:any) => {
-        const { username, email, password, phone } = objData;
+        const { username, email, password, phone, usernameParam } = objData;
 
         const user = db.users.find((user) => user.username.toLowerCase() === username.toLowerCase());
 
@@ -62,7 +62,7 @@ abstract class UserModel {
         if(password) user.password = password;
         if(phone) user.phone = phone;
 
-        writeFileSync("../src/db/bikes.json", db)
+        writeFileSync("./src/db/bikes.json", db)
 
         return {message: "SUCCESSFULLY_MODIFIED_USER"}
     }
@@ -79,10 +79,9 @@ abstract class UserModel {
         writeFileSync("./src/db/bikes.json", db);
     }
 
-    static logout = (username:any) => {
-        const usernameLowerCase = username.toLowerCase()
-        const user = db.users.find((user) => user.username.toLowerCase() === usernameLowerCase);
-        console.log(user)
+    static logout = (username:string) => {
+        
+        const user = db.users.find((user) => user.username.toLowerCase() === username.toLowerCase());
 
         if(!user) return { error: "USER_NOT_FOUND"}
 

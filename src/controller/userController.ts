@@ -4,46 +4,46 @@ import { validateParcialUser, validateUser } from "../validation/userValidation"
 import crypto from "node:crypto"
 
 abstract class UserController {
-    static readUsers = (req: Request, res:Response) => {
+    static readUsers = (req: Request, res: Response) => {
 
         const response = UserModel.readUsers();
-        if(!response) return res.status(500).json({error: "SERVER_ERROR"})
+        if (!response) return res.status(500).json({ error: "SERVER_ERROR" })
 
         res.json(response)
     }
 
-    static readUserByEmail = (req:Request, res:Response) => {
+    static readUserByEmail = (req: Request, res: Response) => {
         const { email } = req.params;
 
         const response = UserModel.readUserByEmail(email);
-        if(!response) return res.status(404).json({error: "USER_NOT_FOUND"});
+        if (!response) return res.status(404).json({ error: "USER_NOT_FOUND" });
 
         res.json(response)
     }
 
-    static createUser = (req:Request, res:Response) => {
+    static createUser = (req: Request, res: Response) => {
 
         const responseValidator = validateUser(req.body);
-        if(!responseValidator.success){
+        if (!responseValidator.success) {
             return res.status(400).send(responseValidator.error);
         }
-        
+
         const { username, email, password, phone } = req.body;
         const hashPassword = crypto.createHash("sha256").update(password).digest("hex");
-        
-        const newUser = { username, email, password: hashPassword , phone };
+
+        const newUser = { username, email, password: hashPassword, phone };
         const response = UserModel.createUser(newUser);
 
-        if(response === 409) return res.status(409).json({error: "USER_ALREADY_EXISTS"})
+        if (response === 409) return res.status(409).json({ error: "USER_ALREADY_EXISTS" })
 
-        res.status(201).json({message: "USER_CREATED_SUCCESSFULLY"})
+        res.status(201).json({ message: "USER_CREATED_SUCCESSFULLY" })
 
     }
 
     static loginUser = (req: Request, res: Response) => {
 
         const responseValidator = validateParcialUser(req.body);
-        if(!responseValidator.success){
+        if (!responseValidator.success) {
             return res.status(400).send(responseValidator.error);
         }
 
@@ -51,29 +51,30 @@ abstract class UserController {
 
         const response = UserModel.loginUser({ username, password });
 
-        if(response === 404) return res.status(404).json({error: "USER_NOT_FOUND"})
-        if(response === 400) return res.status(400).json({error: "BAD_REQUEST"})
+        if (response === 404) return res.status(404).json({ error: "USER_NOT_FOUND" })
+        if (response === 400) return res.status(400).json({ error: "BAD_REQUEST" })
 
-        res.json({message: "LOGGED_IN_USER"})
+        res.json({ message: "LOGGED_IN_USER" })
     }
 
     static updateUser = (req: Request, res: Response) => {
         const responseValidator = validateParcialUser(req.body);
-        if(!responseValidator.success){
+        if (!responseValidator.success) {
             return res.status(400).send(responseValidator.error);
         }
-        const { username: paramUsername} = req.params
+        
+        const { username }  = req.params
         const {  email, password, phone } = req.body
-        const objData = { username:paramUsername, email, password, phone }
+        const objData = { username, email, password, phone }
 
-        if(password){
+        if (password) {
             const hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
             objData.password = hashedPassword;
         }
 
         const response = UserModel.updateUser(objData)
 
-        if(response.error) return res.status(404).json(response);
+        if (response.error) return res.status(404).json(response);
 
         res.json(response)
     }
@@ -82,19 +83,20 @@ abstract class UserController {
         const { username } = req.params;
 
         const response = UserModel.deleteUser(username);
-        if(response === 404) return res.status(404).json({error: "USER_NOT_FOUND"})
+        if (response === 404) return res.status(404).json({ error: "USER_NOT_FOUND" })
 
-        res.json({message: "USER_DELETED_SUCCESSFULLY"})
+        res.json({ message: "USER_DELETED_SUCCESSFULLY" })
     }
 
     static logout = (req: Request, res: Response) => {
-        console.log("antes del req")
+        
         const { username } = req.body;
-        console.log("despues del req ")
+        
 
         const response = UserModel.logout(username);
+        
 
-        if(response.error) return res.status(404).json(response);
+        if (response.error) return res.status(404).json(response);
 
         res.json(response)
     }

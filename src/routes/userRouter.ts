@@ -13,11 +13,11 @@ userRouter.post("/register", UserController.createUser)
 userRouter.post("/login", UserController.loginUser)
 
 // --------- ----- PATCH ------------------
-userRouter.patch("/:username", UserController.updateUser)
+userRouter.patch("/:username",validator, UserController.updateUser)
 
 // --------------- DELETE -----------------
-userRouter.delete("/:username", validator, UserController.deleteUser)
 userRouter.delete("/logout", validator, UserController.logout)
+userRouter.delete("/:username", validator, UserController.deleteUser)
 
 
 

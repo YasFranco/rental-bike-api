@@ -36,22 +36,26 @@ Content-Type: application/json
 
 ### Actualizar datos usuario 
 PATCH http://localhost:5554/api/users/ElianaMendoza
+Content-Type: application/json
+Authorization: 6894669b-281d-4bee-88df-3ac603088859
 
 {
-    "username": "pepito"
+    "email": "eliana.men@gmail.com"
+    
 }
 
 ### Logout
 DELETE http://localhost:5554/api/users/logout
 Content-Type: application/json
-Authorization: b2c281e4-5c55-4ec4-89e7-4547ff34606f
+Authorization: 6894669b-281d-4bee-88df-3ac603088859
 
 {
-    "username": "ElianaMendoza"
+    "username": "Ailenpaez"
 }
 
 ### Obtener todas las bicis 
 GET http://localhost:5554/api/bikes/
+Authorization: 6894669b-281d-4bee-88df-3ac603088859
 
 ### Crear nueva bici
 POST http://localhost:5554/api/bikes/

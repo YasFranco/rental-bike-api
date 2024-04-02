@@ -32,7 +32,7 @@ abstract class BikeController {
         const newBike = { id, type, model, colour, priceHour, quantity }
         const response = BikeModel.createBike(newBike)
 
-        if(response === 409) return res.status(500).json({error: "ERROR_TO_CREATE_MOVIE"})
+        if(response === 409) return res.status(409).json({error: "MODEL_ALREADY_EXISTS"})
 
         res.json({message: "BIKE_CREATED_SUCCESSFULLY"})
     }

@@ -30,7 +30,7 @@ abstract class BikeModel {
         const { id, type, model, colour, priceHour, quantity } = objBike;
         const newBike = { id, type, model, colour, priceHour, quantity}
     
-        const bike = db.bikes.find((bike) => bike.id === id);
+        const bike = db.bikes.find((bike) => bike.model.toLowerCase() === model.toLowerCase());
 
         if(bike) return 409;
         db.bikes.push(newBike)

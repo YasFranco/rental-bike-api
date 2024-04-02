@@ -1,12 +1,14 @@
 import { Response, Request, NextFunction } from "express";
-import { users } from "../db/bikes.json"
+import db from "../db/bikes.json"
 
 const validator = (req:Request, res:Response, next: NextFunction) => {
-    const token = req.get("Authorization");
+    const token = req.get("Authorization")
+    if (!token) return res.status(401).json({ error: "ENTER_A_VALID_TOKEN" });
 
-    const exists = users.find((user) => user.token === token)
-    if(!exists) return res.json({error: "PERMISSIONS_ARE_MISSING"});
+    const exists = db.users.find((user) => user.token === token)
+    if(!exists) return res.status(409).json({error: "INCORRECT_TOKEN"});
     next();
 }
 
 export { validator }
+

@@ -4,18 +4,20 @@ GET http://localhost:5554/api
 ### Obtener todos los usuarios
 GET http://localhost:5554/api/users
 
-### Obtener usuario por username
-GET http://localhost:5554/api/users/Usuario1
+
+
+### Obtener usuario por email
+GET http://localhost:5554/api/users/mendoza.e@gmail.com
 
 ### Crear un nuevo usuario
 POST http://localhost:5554/api/users/register
 Content-Type: application/json
 
 {
-    "username": "Eliana Mendoza",
-    "email": "mendoza.e@gmail.com",
-    "password": "Meneli",
-    "phone": 1513423411
+    "username": "Ailenpaez",
+    "email": "paez.a@gmail.com",
+    "password": "contra345",
+    "phone": 151345411
 }
 
 ### Login 
@@ -24,8 +26,8 @@ Content-Type: application/json
 
 
 {
-    "username": "Eliana Mendoza",
-    "password": "Meneli"
+    "username": "ailenpaez",
+    "password": "245054a007ee239fa95ee38f7d37dc71e983c297c0e4892612bd5b7a63571c58"
 }
 
 ### Borrar usuario
@@ -33,14 +35,14 @@ DELETE http://localhost:5554/api/users/melinaarias
 
 ### Logout
 DELETE http://localhost:5554/api/users/logout
-Content-Type: application/json
+# Content-Type: application/json
 
 {
     "username": "ElianaMendoza"
 }
 
 ### Obtener todas las bicis 
-GET http://localhost:5554/api/bikes/
+GET http://localhost:5554/api/bikes
 
 ### Crear nueva bici
 POST http://localhost:5554/api/bikes/
@@ -59,14 +61,14 @@ Content-Type: application/json
 }
 
 ### Borrar bicicleta
-DELETE http://localhost:5554/api/bikes/c65a68ff-f57a-443f-86c4-39d7f275af60
+DELETE http://localhost:5554/api/bikes/1be994da-6059-4565-8897-9934f17adb89
 
 ### Actualizar datos
-PATCH http://localhost:5554/api/bikes/g90ea8c9-8833-4e6f-b6d2-7563fee32696
+PATCH http://localhost:5554/api/bikes/e87ea8c9-8833-4e6f-b6d2-7563fee31567
 Content-Type: application/json
 
 {
-    "priceHour": "700"
+    "priceHour": 900
 }
 
 ### Buscar bicicleta por id 

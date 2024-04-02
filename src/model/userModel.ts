@@ -39,10 +39,9 @@ abstract class UserModel {
     static loginUser = (dataUser:any) => {
         const { username, password } = dataUser;
 
-        const user = db.users.find((user) => user.username === username);
+        const user = db.users.find((user) => user.username.toLowerCase() === username.toLowerCase());
 
         if(!user) return 404
-        if(!password) return 400
         if(user.password !== password) return 400
 
         const token = randomUUID()
@@ -80,7 +79,8 @@ abstract class UserModel {
     }
 
     static logoutUser = (username:any) => {
-        const user = db.users.find((user) => user.username.toLowerCase() === username.toLowerCase());
+        
+        const user = db.users.find((user) => user.username === username);
 
         if(!user) return 404
 

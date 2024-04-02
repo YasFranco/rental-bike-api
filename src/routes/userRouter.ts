@@ -5,19 +5,19 @@ import { validator } from "../middleware/userAuth";
 const userRouter = Router();
 
 // --------------- GET -----------------
-userRouter.get("/", UserController.readUsers);
-userRouter.get("/:email", UserController.readUserByEmail)
+userRouter.get("/", validator , UserController.readUsers);
+userRouter.get("/:email", validator, UserController.readUserByEmail)
 
 // --------------- POST -----------------
 userRouter.post("/register", UserController.createUser)
 userRouter.post("/login", UserController.loginUser)
 
 // --------- ----- PATCH ------------------
-userRouter.patch("/:username1", UserController.updateUser)
+userRouter.patch("/:username1", validator, UserController.updateUser)
 
 // --------------- DELETE -----------------
-userRouter.delete("/:username", UserController.deleteUser)
-userRouter.delete("/logout", UserController.logoutUser)
+userRouter.delete("/:username", validator, UserController.deleteUser)
+userRouter.delete("/logout", validator, UserController.logoutUser)
 
 
 

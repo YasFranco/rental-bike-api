@@ -62,8 +62,8 @@ abstract class UserController {
         if(!responseValidator.success){
             return res.status(400).send(responseValidator.error);
         }
-        // const { username} = req.params
-        const { username, email, password, phone } = req.body
+        const { username} = req.params
+        const { email, password, phone } = req.body
         const objData = { username, email, password, phone }
 
         const response = UserModel.updateUser(objData)
@@ -84,6 +84,7 @@ abstract class UserController {
 
     static logoutUser = (req: Request, res: Response) => {
         const { username } = req.body;
+        console.log(username)
 
         const response = UserModel.logoutUser(username);
 

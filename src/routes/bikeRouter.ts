@@ -5,6 +5,7 @@ const bikeRouter = Router();
 
 bikeRouter.get("/", BikeController.getAllBike);
 bikeRouter.post("/", BikeController.createBike);
+bikeRouter.delete("/:id", BikeController.deleteBike)
 
 
 export default bikeRouter

@@ -57,3 +57,6 @@ Content-Type: application/json
     "priceHour": 566,
     "quantity": 3
 }
+
+### Borrar bicicleta
+DELETE http://localhost:5554/api/bikes/c65a68ff-f57a-443f-86c4-39d7f275af60

@@ -25,6 +25,18 @@ abstract class BikeModel {
         db.bikes.push(newBike)
         writeFileSync("./src/db/bikes.json", db)
     }
+
+    static deleteBike = (id: string) => {
+        const bike = db.bikes.find((bike) => bike.id === id);
+
+        if(!bike) return 404;
+
+        const deletedBike = db.bikes.filter((bike) => bike.id !== id);
+
+        db.bikes = deletedBike;
+
+        writeFileSync("./src/db/bikes.json", db)
+    }
     
 }
 

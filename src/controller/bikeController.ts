@@ -27,6 +27,15 @@ abstract class BikeController {
 
         res.json({message: "BIKE_CREATED_SUCCESSFULLY"})
     }
+
+    static deleteBike = (req: Request, res: Response) => {
+        const { id } = req.params;
+
+        const response = BikeModel.deleteBike(id);
+        if(response === 404) return res.status(404).json({error: "BIKE_NOT_FOUND"})
+
+        res.json({message: "BIKE_DELETED_SUCCESSFULLY"})
+    }
 }
 
 export default BikeController

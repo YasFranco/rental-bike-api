@@ -68,3 +68,6 @@ Content-Type: application/json
 {
     "priceHour": "700"
 }
+
+### Buscar bicicleta por id 
+GET http://localhost:5554/api/bikes/g90ea8c9-8833-4e6f-b6d2-7563fee32696

@@ -1,6 +1,7 @@
-import { Response, Request, NextFunction } from "express";
+import { Response, Request } from "express";
 import UserModel from "../model/userModel";
 import { validateParcialUser, validateUser } from "../validation/userValidation";
+import crypto from "node:crypto"
 
 abstract class UserController {
     static readUsers = (req: Request, res:Response) => {
@@ -11,10 +12,10 @@ abstract class UserController {
         res.json(response)
     }
 
-    static readUserById = (req:Request, res:Response) => {
-        const { username } = req.params;
+    static readUserByEmail = (req:Request, res:Response) => {
+        const { email } = req.params;
 
-        const response = UserModel.readUserById(username);
+        const response = UserModel.readUserByEmail(email);
         if(!response) return res.status(404).json({error: "USER_NOT_FOUND"});
 
         res.json(response)
@@ -26,10 +27,11 @@ abstract class UserController {
         if(!responseValidator.success){
             return res.status(400).send(responseValidator.error);
         }
-
-        const { username, email, password, phone } = req.body;
         
-        const newUser = { username, email, password, phone };
+        const { username, email, password, phone } = req.body;
+        const hashPassword = crypto.createHash("sha256").update(password).digest("hex");
+        
+        const newUser = { username, email, password: hashPassword , phone };
         const response = UserModel.createUser(newUser);
 
         if(response === 409) return res.status(409).json({error: "USER_ALREADY_EXISTS"})

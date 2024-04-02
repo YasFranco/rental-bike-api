@@ -6,7 +6,7 @@ const userRouter = Router();
 
 // --------------- GET -----------------
 userRouter.get("/", UserController.readUsers);
-userRouter.get("/:username", UserController.readUserById)
+userRouter.get("/:email", UserController.readUserByEmail)
 
 // --------------- POST -----------------
 userRouter.post("/register", UserController.createUser)

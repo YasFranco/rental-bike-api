@@ -50,6 +50,7 @@ En la API, se encuentra una función fundamental llamada loginUsers(), que permi
 
 ## ERD
 
+![ERD-rent-bike](https://drive.google.com/file/d/1fDcLEoZOYGNSIEHaQn6Ye1DSsejB7eKD/view?usp=drive_link)
 
 ## ENDPOINTS PARA LA EJECUCION DE ACCIONES
 

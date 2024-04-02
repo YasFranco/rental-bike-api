@@ -49,7 +49,7 @@ DELETE http://localhost:5554/api/users/logout
 }
 
 ### Obtener todas las bicis 
-GET http://localhost:5554/api/bikes
+GET http://localhost:5554/api/bikes/
 
 ### Crear nueva bici
 POST http://localhost:5554/api/bikes/

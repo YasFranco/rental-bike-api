@@ -5,9 +5,18 @@ import { validateBike, validateParcialBike } from "../validation/bikeValidation"
 
 abstract class BikeController {
 
-    static getAllBike = (req: Request, res: Response) => {
-        const response = BikeModel.getAllBikes();
+    static readAllBike = (req: Request, res: Response) => {
+        const response = BikeModel.readAllBikes();
         if(!response) return res.status(500).json({error: "SERVER_ERROR"})
+    }
+
+    static readBikeById = (req:Request, res:Response) => {
+        const { id } = req.params;
+
+        const response = BikeModel.readBikeById(id);
+        if(!response) return res.status(404).json({error: "BIKE_NOT_FOUND"});
+
+        res.json(response)
     }
 
     static createBike = (req: Request, res: Response) => {

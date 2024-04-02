@@ -3,10 +3,11 @@ import BikeController from "../controller/bikeController";
 
 const bikeRouter = Router();
 
-bikeRouter.get("/", BikeController.getAllBike);
+bikeRouter.get("/", BikeController.readAllBike);
+bikeRouter.get("/:id", BikeController.readBikeById);
 bikeRouter.post("/", BikeController.createBike);
-bikeRouter.delete("/:id", BikeController.deleteBike)
-bikeRouter.patch("/:id", BikeController.updateBike)
+bikeRouter.delete("/:id", BikeController.deleteBike);
+bikeRouter.patch("/:id", BikeController.updateBike);
 
 
 export default bikeRouter

@@ -62,7 +62,7 @@ abstract class UserModel {
         if(password) user.password = password;
         if(phone) user.phone = phone;
 
-        writeFileSync("./src/db/bikes.json", db)
+        writeFileSync("../src/db/bikes.json", db)
 
         return {message: "SUCCESSFULLY_MODIFIED_USER"}
     }
@@ -79,7 +79,7 @@ abstract class UserModel {
         writeFileSync("./src/db/bikes.json", db);
     }
 
-    static logoutUser = (username:any) => {
+    static logout = (username:any) => {
         const usernameLowerCase = username.toLowerCase()
         const user = db.users.find((user) => user.username.toLowerCase() === usernameLowerCase);
         console.log(user)

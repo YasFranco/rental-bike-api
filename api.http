@@ -26,12 +26,13 @@ Content-Type: application/json
 
 
 {
-    "username": "ailenpaez",
-    "password": "245054a007ee239fa95ee38f7d37dc71e983c297c0e4892612bd5b7a63571c58"
+    "username": "elianamendoza",
+    "password": "Meneli"
 }
 
 ### Borrar usuario
 DELETE http://localhost:5554/api/users/melinaarias
+Content-Type: application/json
 
 ### Actualizar datos usuario 
 PATCH http://localhost:5554/api/users/ElianaMendoza
@@ -42,7 +43,8 @@ PATCH http://localhost:5554/api/users/ElianaMendoza
 
 ### Logout
 DELETE http://localhost:5554/api/users/logout
-# Content-Type: application/json
+Content-Type: application/json
+Authorization: b2c281e4-5c55-4ec4-89e7-4547ff34606f
 
 {
     "username": "ElianaMendoza"

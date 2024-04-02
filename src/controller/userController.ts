@@ -87,10 +87,12 @@ abstract class UserController {
         res.json({message: "USER_DELETED_SUCCESSFULLY"})
     }
 
-    static logoutUser = (req: Request, res: Response) => {
+    static logout = (req: Request, res: Response) => {
+        console.log("antes del req")
         const { username } = req.body;
+        console.log("despues del req ")
 
-        const response = UserModel.logoutUser(username);
+        const response = UserModel.logout(username);
 
         if(response.error) return res.status(404).json(response);
 

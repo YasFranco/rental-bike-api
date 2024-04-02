@@ -33,6 +33,13 @@ Content-Type: application/json
 ### Borrar usuario
 DELETE http://localhost:5554/api/users/melinaarias
 
+### Actualizar datos usuario 
+PATCH http://localhost:5554/api/users/ElianaMendoza
+
+{
+    "username": "pepito"
+}
+
 ### Logout
 DELETE http://localhost:5554/api/users/logout
 # Content-Type: application/json

@@ -13,7 +13,7 @@ userRouter.post("/register", UserController.createUser)
 userRouter.post("/login", UserController.loginUser)
 
 // --------- ----- PATCH ------------------
-userRouter.patch("/:username1", validator, UserController.updateUser)
+userRouter.patch("/:username", UserController.updateUser)
 
 // --------------- DELETE -----------------
 userRouter.delete("/:username", validator, UserController.deleteUser)

@@ -62,15 +62,20 @@ abstract class UserController {
         if(!responseValidator.success){
             return res.status(400).send(responseValidator.error);
         }
-        const { username} = req.params
-        const { email, password, phone } = req.body
-        const objData = { username, email, password, phone }
+        const { username: paramUsername} = req.params
+        const {  email, password, phone } = req.body
+        const objData = { username:paramUsername, email, password, phone }
+
+        if(password){
+            const hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+            objData.password = hashedPassword;
+        }
 
         const response = UserModel.updateUser(objData)
 
-        if(response === 404) return res.status(404).json({ error: "USER_NOT_FOUND"});
+        if(response.error) return res.status(404).json(response);
 
-        res.json({message: "SUCCESSFULLY_MODIFIED_USER"})
+        res.json(response)
     }
 
     static deleteUser = (req: Request, res: Response) => {
@@ -84,13 +89,12 @@ abstract class UserController {
 
     static logoutUser = (req: Request, res: Response) => {
         const { username } = req.body;
-        console.log(username)
 
         const response = UserModel.logoutUser(username);
 
-        if(response === 404) return res.status(404).json({ error: "USER_NOT_FOUND"});
+        if(response.error) return res.status(404).json(response);
 
-        res.json({message: "LOGGED_OUT_USER"})
+        res.json(response)
     }
 }
 

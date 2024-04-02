@@ -39,3 +39,21 @@ Content-Type: application/json
     "username": "ElianaMendoza"
 }
 
+### Obtener todas las bicis 
+GET http://localhost:5554/api/bikes/
+
+### Crear nueva bici
+POST http://localhost:5554/api/bikes/
+Content-Type: application/json
+
+{
+    "type": "Mountain",
+    "model": "Nordic MTB X 1.0",
+    "colour": [
+                "negro",
+                "blanco",
+                "verde"
+            ],
+    "priceHour": 566,
+    "quantity": 3
+}

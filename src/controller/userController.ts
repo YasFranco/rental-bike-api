@@ -1,6 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import UserModel from "../model/userModel";
-import { validateParcialUser, validateUser } from "../validation/auth";
+import { validateParcialUser, validateUser } from "../validation/userValidation";
 
 abstract class UserController {
     static readUsers = (req: Request, res:Response) => {
@@ -34,7 +34,7 @@ abstract class UserController {
 
         if(response === 409) return res.status(409).json({error: "USER_ALREADY_EXISTS"})
 
-        res.status(201).json({error: "USER_CREATED_SUCCESSFULLY"})
+        res.status(201).json({message: "USER_CREATED_SUCCESSFULLY"})
 
     }
 

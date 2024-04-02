@@ -17,6 +17,7 @@
     ],
     "bikes": [
         {
+            "id": "e87ea8c9-8833-4e6f-b6d2-7563fee31567",
             "type": "Montaña",
             "model": "Trek X-Caliber 9",
             "colour": [
@@ -24,10 +25,11 @@
                 "azul",
                 "amarillo"
             ],
-            "price-hour": 545,
+            "priceHour": 545,
             "quantity": 10
         },
         {
+            "id": "e87ea8c9-8833-4e6f-c6d2-7563fee31589",
             "type": "Ciudad",
             "model": "Specialized Sirrus X 3.0",
             "colour": [
@@ -35,10 +37,11 @@
                 "azul",
                 "verde"
             ],
-            "price-hour": 485,
+            "priceHour": 485,
             "quantity": 8
         },
         {
+            "id": "g90ea8c9-8833-4e6f-b6d2-7563fee32696",
             "type": "Plegable",
             "model": "Brompton M6L",
             "colour": [
@@ -46,8 +49,20 @@
                 "verde",
                 "azul"
             ],
-            "price-hour": 637,
+            "priceHour": 637,
             "quantity": 5
+        },
+        {
+            "id": "c65a68ff-f57a-443f-86c4-39d7f275af60",
+            "type": "Mountain",
+            "model": "Nordic MTB X 1.0",
+            "colour": [
+                "negro",
+                "blanco",
+                "verde"
+            ],
+            "priceHour": 566,
+            "quantity": 3
         }
     ]
 }

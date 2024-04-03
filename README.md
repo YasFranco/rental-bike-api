@@ -48,10 +48,6 @@ En la API, se encuentra una función fundamental llamada loginUsers(), que permi
 - **Ver top 5 de bicicletas más populares:** Muestra las 5 bicicletas más populares y solicitadas en el sistema.
 
 
-## ERD
-
-![ERD-rent-bike](https://www.facebook.com/photo/?fbid=7335641003190616&set=a.5726562220765177&__cft__[0]=AZUZBZIJ0K2mxr0vwB8ME0tcPhQ4v92vPaiT_80DRL4-TXnB0lvx20CZ-woSMyu3AOFywMW5As8OKefnQTgNEbUlJbKYvm9zUzfxZqya5wNJBA&__tn__=EH-R)
-
 ## ENDPOINTS PARA LA EJECUCION DE ACCIONES
 
 ```bash

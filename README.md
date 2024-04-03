@@ -51,68 +51,75 @@ En la API, se encuentra una función fundamental llamada loginUsers(), que permi
 ## ENDPOINTS PARA LA EJECUCION DE ACCIONES
 
 ```bash
-### Obteniendo info
+### Leer informacion 
 GET http://localhost:5554/api
 
-### Obtener todos los usuarios
+
+### Mostrar todos los usuarios
 GET http://localhost:5554/api/users
+Authorization: 
 
 
-
-### Obtener usuario por email
-GET http://localhost:5554/api/users/mendoza.e@gmail.com
+### Mostrar usuario buscado por email
+GET http://localhost:5554/api/users/eliana.men@gmail.com
+Authorization: 
 
 ### Crear un nuevo usuario
 POST http://localhost:5554/api/users/register
 Content-Type: application/json
+Authorization: 
 
 {
-    "username": "Ailenpaez",
-    "email": "paez.a@gmail.com",
-    "password": "contra345",
-    "phone": 151345411
+    "username": "prueba",
+    "email": "prueba@gmail.com",
+    "password": "prueba123",
+    "phone": 1235461134
 }
 
 ### Login 
 POST http://localhost:5554/api/users/login
 Content-Type: application/json
 
-
 {
-    "username": "elianamendoza",
-    "password": "Meneli"
+    "username": "prueba",
+    "password": "prueba123"
 }
 
 ### Borrar usuario
-DELETE http://localhost:5554/api/users/melinaarias
+DELETE http://localhost:5554/api/users/prueba
 Content-Type: application/json
 
 ### Actualizar datos usuario 
-PATCH http://localhost:5554/api/users/ElianaMendoza
+PATCH http://localhost:5554/api/users/prueba
+Content-Type: application/json
+Authorization: 
 
 {
-    "username": "pepito"
+    "email": "prueba"
+    
 }
 
 ### Logout
 DELETE http://localhost:5554/api/users/logout
 Content-Type: application/json
-Authorization: b2c281e4-5c55-4ec4-89e7-4547ff34606f
+Authorization: 
 
 {
-    "username": "ElianaMendoza"
+    "username": "prueba"
 }
 
-### Obtener todas las bicis 
+### Mostrar todas las bicicletas
 GET http://localhost:5554/api/bikes/
+Authorization: 
 
-### Crear nueva bici
+### Crear una nueva bicicleta
 POST http://localhost:5554/api/bikes/
 Content-Type: application/json
+Authorization: 
 
 {
-    "type": "Mountain",
-    "model": "Nordic MTB X 1.0",
+    "type": "prueba123",
+    "model": "modelo1",
     "colour": [
                 "negro",
                 "blanco",
@@ -124,10 +131,12 @@ Content-Type: application/json
 
 ### Borrar bicicleta
 DELETE http://localhost:5554/api/bikes/1be994da-6059-4565-8897-9934f17adb89
+Authorization: 
 
 ### Actualizar datos
 PATCH http://localhost:5554/api/bikes/e87ea8c9-8833-4e6f-b6d2-7563fee31567
 Content-Type: application/json
+Authorization: 
 
 {
     "priceHour": 900

@@ -3,6 +3,7 @@ import { writeFileSync } from "jsonfile"
 import { randomUUID } from "node:crypto"
 
 abstract class UserModel {
+
     static readUsers = () => {
         const mappedData = db.users.map((user) => {
             const { username, email} = user

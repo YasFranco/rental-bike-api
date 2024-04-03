@@ -20,6 +20,34 @@
             "password": "245054a007ee239fa95ee38f7d37dc71e983c297c0e4892612bd5b7a63571c58",
             "phone": 151345411,
             "token": ""
+        },
+        {
+            "username": "YasminFranco",
+            "email": "yasfranco@gmail.com",
+            "password": "4c0757a20ccad865c0f0263f9c7df506640d7aff262ebaadbf770b0ba4758b5b",
+            "phone": 1514645411,
+            "token": ""
+        },
+        {
+            "username": "CaroSordini",
+            "email": "carosor@gmail.com",
+            "password": "be5572d3f0e55b8fc0760287ba9b4b2c90a3ae029406b73d99350a82a60d2358",
+            "phone": 12354645411,
+            "token": ""
+        },
+        {
+            "username": "Tatiana",
+            "email": "tati@gmail.com",
+            "password": "17e2e8c87cc0e755d0d0dd4b4ae4a0751b1466c8083e08d3041be7ebde293829",
+            "phone": 12354611,
+            "token": ""
+        },
+        {
+            "username": "prueba",
+            "email": "prueba@gmail.com",
+            "password": "ff960cb55673958c594d0daaab1e368651c75c02f9687192a1811e7b180336a7",
+            "phone": 1235461134,
+            "token": ""
         }
     ],
     "bikes": [

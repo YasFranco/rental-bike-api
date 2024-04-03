@@ -7,7 +7,7 @@ const userRouter = Router();
 
 userRouter.get("/", validator , UserController.readUsers);
 userRouter.get("/:email", validator, UserController.readUserByEmail)
-userRouter.post("/register", UserController.createUser)
+userRouter.post("/register",  UserController.createUser)
 userRouter.post("/login", UserController.loginUser)
 userRouter.patch("/:username",validator, UserController.updateUser)
 userRouter.delete("/logout", validator, UserController.logout)

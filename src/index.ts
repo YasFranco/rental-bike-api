@@ -21,9 +21,9 @@ app.use("/api/users", userRouter)
 app.use("/api/bikes", bikeRouter)
 
 app.use("*", (req, res) => {
-    res.status(404).json({ error: "Resourse not found"})
+    res.status(404).json({ error: "RESOURSE_NOT_FOUND"})
 })
 
 app.listen(PORT, () => {
-    console.log(`Server listening on PORT: http://localhost:${PORT}`)
+    console.log(`SERVER_LISTENING_ON_PORT: http://localhost:${PORT}`)
 })

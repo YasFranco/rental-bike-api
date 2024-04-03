@@ -16,7 +16,7 @@ abstract class UserController {
         const { email } = req.params;
 
         const response = UserModel.readUserByEmail(email);
-        if (!response) return res.status(404).json({ error: "USER_NOT_FOUND" });
+        if (response.error) return res.status(404).json(response);
 
         res.json(response)
     }
@@ -34,9 +34,9 @@ abstract class UserController {
         const newUser = { username, email, password: hashPassword, phone };
         const response = UserModel.createUser(newUser);
 
-        if (response === 409) return res.status(409).json({ error: "USER_ALREADY_EXISTS" })
+        if (response.error) return res.status(409).json()
 
-        res.status(201).json({ message: "USER_CREATED_SUCCESSFULLY" })
+        res.status(201).json(response)
 
     }
 
@@ -54,7 +54,7 @@ abstract class UserController {
         if (response === 404) return res.status(404).json({ error: "USER_NOT_FOUND" })
         if (response === 400) return res.status(400).json({ error: "BAD_REQUEST" })
 
-        res.json({ message: "LOGGED_IN_USER" })
+        res.json(response)
     }
 
     static updateUser = (req: Request, res: Response) => {
@@ -85,7 +85,7 @@ abstract class UserController {
         const response = UserModel.deleteUser(username);
         if (response === 404) return res.status(404).json({ error: "USER_NOT_FOUND" })
 
-        res.json({ message: "USER_DELETED_SUCCESSFULLY" })
+        res.json(response)
     }
 
     static logout = (req: Request, res: Response) => {

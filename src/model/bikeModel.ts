@@ -22,6 +22,8 @@ abstract class BikeModel {
     static readBikeById = (id: string) => {
         const data = db.bikes.find((bike) => bike.id === id);
 
+        if(!data) return {error: "BIKE_NOT_FOUND"}
+
         if(data) {
             const { type, model, colour, priceHour } = data;
             return { type, model, colour, priceHour }

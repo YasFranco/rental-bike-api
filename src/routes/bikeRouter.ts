@@ -6,9 +6,9 @@ const bikeRouter = Router();
 
 bikeRouter.get("/", validator, BikeController.readAllBike); 
 bikeRouter.get("/:id", BikeController.readBikeById);
-bikeRouter.post("/", BikeController.createBike);
-bikeRouter.delete("/:id", BikeController.deleteBike);
-bikeRouter.patch("/:id", BikeController.updateBike);
+bikeRouter.post("/",validator, BikeController.createBike);
+bikeRouter.delete("/:id",validator, BikeController.deleteBike);
+bikeRouter.patch("/:id",validator, BikeController.updateBike);
 
 
 export default bikeRouter

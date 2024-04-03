@@ -17,6 +17,8 @@ abstract class UserModel {
     static readUserByEmail = (email: any) => {
         const data = db.users.find((user) => user.email === email);
 
+        if(!data) return { error: "USER_NOT_FOUND" }
+
         if(data) {
             const { username, email} = data;
             return { username, email}
@@ -31,9 +33,11 @@ abstract class UserModel {
         const newUser = { username, email, password, phone, token: "" };
         const user = db.users.find((user) => user.username === username);
 
-        if(user) return 409;
+        if(user) return { error: "USER_ALREADY_EXISTS" };
         db.users.push(newUser)
         writeFileSync("./src/db/bikes.json", db)
+
+        return { message: "USER_CREATED_SUCCESSFULLY" }
     }
 
     static loginUser = (dataUser:any) => {
@@ -48,6 +52,8 @@ abstract class UserModel {
         user.token = token
 
         writeFileSync("./src/db/bikes.json", db)
+
+        return { message: "LOGGED_IN_USER" }
     }
 
     static updateUser = (objData:any) => {
@@ -77,6 +83,8 @@ abstract class UserModel {
         db.users = deletedUser;
 
         writeFileSync("./src/db/bikes.json", db);
+
+        return { message: "USER_DELETED_SUCCESSFULLY" }
     }
 
     static logout = (username:string) => {
